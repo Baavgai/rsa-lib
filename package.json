@@ -1,0 +1,56 @@
+{
+  "name": "rsa-lib",
+  "version": "1.0.1",
+  "author": {
+    "name": "baavgai",
+    "email": "baavgai@chaingang.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Baavgai/rsa-lib.git"
+  },
+  "license": "MIT",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "test": "npx jest",
+    "clean": "npx shx rm -rf lib dist *.tgz ts_build",
+    "lint:fix": "npx eslint -c ./.eslintrc.json --fix tests/**/*.{ts,tsx} src/**/*.{ts,tsx}",
+    "lint": "npx eslint -c ./.eslintrc.json tests/**/*.{ts,tsx} src/**/*.{ts,tsx}",
+    "tsc": "npx tsc",
+    "tsc:watch": "npx tsc --watch",
+    "tsc:mk": "shx mkdir ts_build",
+    "tsc:prep": "shx cp -r src/exlib ts_build/exlib",
+    "tsc:clean": "npx shx rm -rf ts_build",
+    "tsc:build": "npx run-s tsc:clean tsc:mk tsc:prep tsc",
+    "cp_def": "shx cp ts_build/index.d.ts dist/",
+    "bundle": "npx rollup -c ./rollup.config.js",
+    "build": "npx run-s clean tsc:build bundle cp_def done",
+    "done": "shx echo build done"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.8",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-typescript": "^7.12.7",
+    "@types/jest": "^26.0.15",
+    "@typescript-eslint/eslint-plugin": "^4.8.2",
+    "@typescript-eslint/parser": "^4.8.2",
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.14.0",
+    "jest": "^26.6.3",
+    "jest-cli": "^26.6.3",
+    "npm-run-all": "^4.1.5",
+    "rollup": "^2.33.3",
+    "rollup-plugin-terser": "^7.0.2",
+    "shx": "^0.3.3",
+    "terser": "^5.5.0",
+    "tslib": "^2.0.3",
+    "typescript": "^4.1.2"
+  },
+  "dependencies": {
+    "rsa-lib": "^1.0.1"
+  }
+}

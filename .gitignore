@@ -1,0 +1,8 @@
+node_modules
+package-lock.json
+hold
+ts_build
+yarn-error.log
+*.tgz
+dist
+.cache
