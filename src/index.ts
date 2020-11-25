@@ -45,7 +45,7 @@ class PublicKeyImpl implements PublicKey {
     get publicOnly() { return true; }
     getPublicKey = (type?: KeyFormat) => {
         if (type === "hex") {
-            return fmtFuncs.getPublicBaseKeyB64(this.pubDat);
+            return fmtFuncs.getPublicBaseKey(this.pubDat);
         } else if (type === "wrapped") {
             return fmtFuncs.getPublicBaseKeyText(this.pubDat);
         } else {
@@ -65,7 +65,7 @@ class PrivateKeyImpl extends PublicKeyImpl implements PrivateKey {
 
     getPrivateKey = (type?: KeyFormat) => {
         if (type === "hex") {
-            return fmtFuncs.getPrivateBaseKeyB64(this.privDat);
+            return fmtFuncs.getPrivateBaseKey(this.privDat);
         } else if (type === "wrapped") {
             return fmtFuncs.getPrivateBaseKeyText(this.privDat);
         } else {
