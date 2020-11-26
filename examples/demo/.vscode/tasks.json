@@ -1,0 +1,16 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "startLocal",
+			"problemMatcher": [],
+			"label": "npm: startLocal",
+			"detail": "set \"REACT_APP_SERVER_URL=simulation\" && react-scripts start",
+			"group": {
+				"kind": "test",
+				"isDefault": true
+			}
+		}
+	]
+}
